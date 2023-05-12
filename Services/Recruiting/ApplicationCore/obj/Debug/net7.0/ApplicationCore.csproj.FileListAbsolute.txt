@@ -1,0 +1,12 @@
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\bin\Debug\net7.0\ApplicationCore.deps.json
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\bin\Debug\net7.0\ApplicationCore.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\bin\Debug\net7.0\ApplicationCore.pdb
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.AssemblyInfo.cs
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\refint\ApplicationCore.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ApplicationCore.pdb
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\ApplicationCore\obj\Debug\net7.0\ref\ApplicationCore.dll
