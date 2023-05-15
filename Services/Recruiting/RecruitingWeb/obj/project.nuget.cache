@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i66axP2xePR5mj+ehKxGZr2eyQpaWuuXHzQ5Q4aAd1qNUAYmrlOmWZVPaBMjftBfSN4Zp0j865TBCa9iU1gWNw==",
+  "dgSpecHash": "8caL2oXLrq4l/TohIqbqXPKafx58SXB8ZdxWajavh4K52fbkMt03TRxlchW/er/RpSLdYUHPEKxAXFKsQ9FiNQ==",
   "success": true,
-  "projectFilePath": "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRMhw\\Services\\Recruiting\\RecruitingWeb\\RecruitingWeb.csproj",
+  "projectFilePath": "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRM\\Services\\Recruiting\\RecruitingWeb\\RecruitingWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

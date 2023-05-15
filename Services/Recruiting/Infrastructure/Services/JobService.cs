@@ -39,6 +39,10 @@ namespace Infrastructure.Services
         public async Task<JobResponseModel> GetJobById(int id)
         {
             var job = await _jobRepository.GetJobById(id);
+            if(job == null)
+            {
+                return null;
+            }
             var jobResponseModel = new JobResponseModel
             { 
                 Id = job.Id, Title = job.Title, StartDate = job.StartDate.GetValueOrDefault(), Description = job.Description 
@@ -59,6 +63,51 @@ namespace Infrastructure.Services
 
             var job = await _jobRepository.AddAsync(jobEntity);
             return job.Id;
+        }
+
+        public async Task<IEnumerable<JobResponseModel>> GetPaginatedJobs(int pageSize = 30, int pageNumber = 1)
+        {
+            var jobs = await _jobRepository.GetAllJobs();
+            jobs = jobs.Skip(pageSize * pageNumber).Take(pageSize).ToList();
+            var jobsResponseModel = new List<JobResponseModel>();
+
+            foreach (var job in jobs)
+            {
+                jobsResponseModel.Add(new JobResponseModel
+                {
+                    Id = job.Id,
+                    Description = job.Description,
+                    Title = job.Title,
+                    StartDate = job.StartDate.GetValueOrDefault(),
+                    NumberOfPositions = job.NumberOfPositions
+                });
+            }
+
+            return jobsResponseModel;
+        }
+
+        public async Task<IEnumerable<JobResponseModel>> GetJobsByDepartment(int id, int pageSize = 30, int pageNumber = 1)
+        {
+            var jobs = await _jobRepository.GetAllJobs();
+            jobs = jobs.Skip(pageSize * pageNumber).Take(pageSize).ToList();
+            var jobsResponseModel = new List<JobResponseModel>();
+
+            foreach (var job in jobs)
+            {
+                if(job.Id == id)
+                {
+                    jobsResponseModel.Add(new JobResponseModel
+                    {
+                        Id = job.Id,
+                        Description = job.Description,
+                        Title = job.Title,
+                        StartDate = job.StartDate.GetValueOrDefault(),
+                        NumberOfPositions = job.NumberOfPositions
+                    });
+                }
+            }
+
+            return jobsResponseModel;
         }
     }
 }

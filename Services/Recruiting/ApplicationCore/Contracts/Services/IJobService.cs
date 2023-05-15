@@ -14,5 +14,9 @@ namespace ApplicationCore.Contracts.Services
         Task<JobResponseModel> GetJobById(int id);
 
         Task<int> AddJob(JobRequestModel model);
+
+        Task<IEnumerable<JobResponseModel>> GetPaginatedJobs(int pageSize = 30, int pageNumber = 1);
+
+        Task<IEnumerable<JobResponseModel>> GetJobsByDepartment(int id, int pageSize = 30, int pageNumber = 1);
     }
 }

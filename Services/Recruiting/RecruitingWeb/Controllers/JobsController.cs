@@ -54,5 +54,11 @@ namespace RecruitingWeb.Controllers
             await _jobService.AddJob(model);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> GetJobsByDepartment(int id, int pageSize = 30, int pageNumber = 1)
+        {
+            var job = await _jobService.GetJobsByDepartment(id, pageSize, pageNumber);
+            return View();
+        }
     }
 }
