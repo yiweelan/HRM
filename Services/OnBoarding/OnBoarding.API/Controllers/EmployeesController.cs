@@ -1,0 +1,59 @@
+﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace OnBoarding.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmployeesController : ControllerBase
+    {
+        private readonly IEmployeeService _employeeService;
+
+        public EmployeesController(IEmployeeService employeeService)
+        {
+            _employeeService = employeeService;
+        }
+
+        [Route("")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllEmployees()
+        {
+            var emps = await _employeeService.GetAllEmployees();
+
+            if (!emps.Any())
+            {
+                // no employees exists, then 404
+                return NotFound(new { error = "No open Employees found, please try later" });
+            }
+            return Ok(emps);
+        }
+
+        [Route("")]
+        [HttpPost]
+        public async Task<IActionResult> Create(EmployeeRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // 400 status code
+                return BadRequest();
+            }
+            var emp = await _employeeService.AddEmployee(model);
+            return CreatedAtAction("GetEmployeeDetails", new { controller = "Employees", id = emp }, "Employee Created");
+        }
+
+        [Route("")]
+        [HttpPut]
+        public async Task<IActionResult> Update(EmployeeRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // 400 status code
+                return BadRequest();
+            }
+            var emp = await _employeeService.UpdateEmployee(model);
+            return Ok(emp);
+        }
+    }
+}
