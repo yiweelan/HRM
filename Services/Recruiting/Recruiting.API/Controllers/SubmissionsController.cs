@@ -1,5 +1,7 @@
 ﻿using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using ApplicationCore.Models;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +29,19 @@ namespace Recruiting.API.Controllers
                 return NotFound(new { error = "No submissions found, please try later" });
             }
             return Ok(subs);
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<IActionResult> Create(SubmissionRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // 400 status code
+                return BadRequest();
+            }
+            var sub = await _submissionService.AddSubmission(model);
+            return CreatedAtAction("GetSubmissionById", new { controller = "Submissions", id = sub }, "Submission Created");
         }
     }
 }
