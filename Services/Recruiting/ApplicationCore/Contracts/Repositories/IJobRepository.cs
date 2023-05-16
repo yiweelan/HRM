@@ -11,5 +11,7 @@ namespace ApplicationCore.Contracts.Repositories
     {
         Task<List<Job>> GetAllJobs();
         Task<Job> GetJobById(int id);
+
+        Task<List<JobStatusLookUp>> GetJobStatus();
     }
 }

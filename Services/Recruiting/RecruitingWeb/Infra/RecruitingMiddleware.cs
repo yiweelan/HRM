@@ -1,4 +1,5 @@
 ﻿using RecruitingWeb.Infra;
+using Serilog;
 
 namespace RecruitingWeb.Infra
 {
@@ -12,9 +13,22 @@ namespace RecruitingWeb.Infra
 
         public async Task Invoke(HttpContext context)
         {
+            var log = new LoggerConfiguration();
+
+
             var requestMethod = context.Request.Method;
-            await _next(context);
+            try
+            {
+                await _next(context);
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            
         }
+
+
     }
 }
 

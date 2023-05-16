@@ -10,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IJobService, JobService>();
-
 builder.Services.AddScoped<IJobRepository, JobRepository>();
+
+builder.Services.AddScoped<ISubmissionService, SubmissionService>();
+builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
 
 // inject our connectionstring into DbContext
 builder.Services.AddDbContext<RecruitingDbContext>( 

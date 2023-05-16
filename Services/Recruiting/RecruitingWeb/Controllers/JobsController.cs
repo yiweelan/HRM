@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using ApplicationCore.Models;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -27,15 +28,19 @@ namespace RecruitingWeb.Controllers
 
         [HttpGet]
         // get the job detail information
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var job = _jobService.GetJobById(id);
-            return View();
+            var job = await _jobService.GetJobById(id);
+            return View(job);
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // dropdown of job status
+            List<JobStatusLookUp> sl = new List<JobStatusLookUp>();
+            sl = await _jobService.GetJobStatus();
+            ViewBag.message = sl;
             // take the information from view and save to DB
             return View();
         }

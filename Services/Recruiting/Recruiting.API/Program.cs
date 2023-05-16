@@ -14,8 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IJobService, JobService>();
-
 builder.Services.AddScoped<IJobRepository, JobRepository>();
+
+builder.Services.AddScoped<ISubmissionService, SubmissionService>();
+builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
 
 // inject our connectionstring into DbContext
 builder.Services.AddDbContext<RecruitingDbContext>(

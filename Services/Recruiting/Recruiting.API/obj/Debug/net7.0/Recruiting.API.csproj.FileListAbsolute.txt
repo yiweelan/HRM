@@ -57,7 +57,6 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.AssemblyInfoInputs.cache
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.AssemblyInfo.cs
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.csproj.CoreCompileInputs.cache
-C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\staticwebassets\msbuild.Recruiting.API.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Recruiting.API.props
@@ -73,3 +72,4 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.pdb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.genruntimeconfig.cache
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\ref\Recruiting.API.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.MvcApplicationPartsAssemblyInfo.cs

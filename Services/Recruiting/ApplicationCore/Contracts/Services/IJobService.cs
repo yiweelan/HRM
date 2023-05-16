@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Models;
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,7 @@ namespace ApplicationCore.Contracts.Services
         Task<IEnumerable<JobResponseModel>> GetPaginatedJobs(int pageSize = 30, int pageNumber = 1);
 
         Task<IEnumerable<JobResponseModel>> GetJobsByDepartment(int id, int pageSize = 30, int pageNumber = 1);
+
+        Task<List<JobStatusLookUp>> GetJobStatus();
     }
 }

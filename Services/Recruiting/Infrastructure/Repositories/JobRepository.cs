@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace Infrastructure.Repositories
 {
@@ -29,6 +30,12 @@ namespace Infrastructure.Repositories
         {
             var job = await _dbContext.Jobs.FirstOrDefaultAsync(j => j.Id == id);
             return job;
+        }
+
+        public async Task<List<JobStatusLookUp>> GetJobStatus()
+        {
+            var jobStatus = await _dbContext.JobStatusLookUps.ToListAsync();
+            return jobStatus;
         }
     }
 }

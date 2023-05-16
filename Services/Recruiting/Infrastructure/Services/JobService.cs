@@ -43,9 +43,13 @@ namespace Infrastructure.Services
             {
                 return null;
             }
+
             var jobResponseModel = new JobResponseModel
             { 
-                Id = job.Id, Title = job.Title, StartDate = job.StartDate.GetValueOrDefault(), Description = job.Description 
+                Id = job.Id, Title = job.Title,
+                Description = job.Description,
+                StartDate = job.StartDate.GetValueOrDefault(),
+                NumberOfPositions = job.NumberOfPositions
             };
 
             return jobResponseModel;
@@ -54,15 +58,21 @@ namespace Infrastructure.Services
         public async Task<int> AddJob(JobRequestModel model)
         {
             // call repos that will use EF core to save data
+            // Guid guid = Guid.NewGuid();
             var jobEntity = new Job
             {
                 Title = model.Title, StartDate = model.StartDate, Description = model.Description,
                 CreateOn = DateTime.UtcNow, NumberOfPositions = model.NumberOfPositions,
-                JobStatusLookUpId = 1
+                JobStatusLookUpId = 1, JobCode = Guid.NewGuid(), IsActive = true
             };
 
             var job = await _jobRepository.AddAsync(jobEntity);
             return job.Id;
+        }
+
+        public async Task<List<JobStatusLookUp>> GetJobStatus()
+        {
+            return await _jobRepository.GetJobStatus();
         }
 
         public async Task<IEnumerable<JobResponseModel>> GetPaginatedJobs(int pageSize = 30, int pageNumber = 1)
