@@ -96,7 +96,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRM\\Services\\Interviews\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRM\\Services\\Interviews\\ApplicationCore\\ApplicationCore.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

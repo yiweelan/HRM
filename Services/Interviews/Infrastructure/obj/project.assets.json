@@ -1027,6 +1027,19 @@
             "rid": "win"
           }
         }
+      },
+      "ApplicationCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/ApplicationCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApplicationCore.dll": {}
+        }
       }
     }
   },
@@ -3171,10 +3184,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ApplicationCore/1.0.0": {
+      "type": "project",
+      "path": "../ApplicationCore/ApplicationCore.csproj",
+      "msbuildProject": "../ApplicationCore/ApplicationCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "ApplicationCore >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5"
     ]
   },
@@ -3209,7 +3228,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRM\\Services\\Interviews\\ApplicationCore\\ApplicationCore.csproj": {
+              "projectPath": "C:\\Shortcuts\\Design\\AntraHW\\repos\\HRM\\Services\\Interviews\\ApplicationCore\\ApplicationCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
