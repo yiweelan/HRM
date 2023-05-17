@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Models;
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,10 @@ namespace ApplicationCore.Contracts.Services
         Task<InterviewResponseModel> GetInterviewsById(int id);
 
         Task<int> AddInterview(InterviewRequestModel model);
+
+        //Task<InterviewResponseModel> UpdateInterview(Interview model);
+        Task<int> UpdateInterview(InterviewRequestModel model);
+
+        Task<int> DeleteInterview(int id);
     }
 }

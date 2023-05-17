@@ -30,6 +30,20 @@ namespace OnBoarding.API.Controllers
             return Ok(emps);
         }
 
+        [Route("{id:int}", Name = "GetEmployeeDetails")]
+        [HttpGet]
+        public async Task<IActionResult> GetEmployeeDetails(int id)
+        {
+            var emp = await _employeeService.GetEmployeeById(id);
+
+            if (emp == null)
+            {
+                return NotFound(new { errorMessage = "No Employee found for this id" });
+            }
+
+            return Ok(emp);
+        }
+
         [Route("")]
         [HttpPost]
         public async Task<IActionResult> Create(EmployeeRequestModel model)

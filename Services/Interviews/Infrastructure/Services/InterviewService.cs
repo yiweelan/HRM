@@ -73,6 +73,26 @@ namespace Infrastructure.Services
         {
             var interviewEntity = new Interview
             {
+                CandidateIdentityId = Guid.NewGuid(),
+                BeginTime = model.BeginTime,
+                EndTime = model.EndTime,
+                CandidateEmail = model.CandidateEmail,
+                CandidateFirstName = model.CandidateFirstName,
+                CandidateLastName = model.CandidateLastName,
+                InterviewerId = model.InterviewerId,
+                InterviewTypeId = model.InterviewTypeId,
+                SubmissionId = model.SubmissionId,
+            };
+
+            var interivew = await _interviewRepository.AddAsync(interviewEntity);
+            return interivew.Id;
+        }
+
+        public async Task<int> UpdateInterview(InterviewRequestModel model)
+        {
+
+            var interviewEntity = new Interview
+            {
                 Id = model.Id,
                 CandidateIdentityId = Guid.NewGuid(),
                 BeginTime = model.BeginTime,
@@ -85,7 +105,15 @@ namespace Infrastructure.Services
                 SubmissionId = model.SubmissionId,
             };
 
-            return interviewEntity.Id;
+            var interivew = await _interviewRepository.UpdateAsync(interviewEntity);
+            return interivew.Id;
+        }
+
+        public async Task<int> DeleteInterview(int id)
+        {
+            var deletedId = await _interviewRepository.DeleteAsync(id);
+
+            return deletedId;
         }
     }
 }

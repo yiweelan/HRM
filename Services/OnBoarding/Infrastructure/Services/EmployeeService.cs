@@ -38,11 +38,31 @@ namespace Infrastructure.Services
             return employeeReponseModel;
         }
 
+        public async Task<EmployeeResponseModel> GetEmployeeById(int id)
+        {
+            var emp = await _employeeRepository.GetEmployeeById(id);
+            if (emp == null)
+            {
+                return null;
+            }
+
+            var employeeResponseModel = new EmployeeResponseModel
+            {
+                Id = emp.Id,
+                Email = emp.Email,
+                FirstName = emp.FirstName,
+                LastName = emp.LastName,
+                SSN = emp.SSN
+            };
+
+            return employeeResponseModel;
+        }
+
         public async Task<int> AddEmployee(EmployeeRequestModel model)
         {
             var empEntity = new Employee
             {
-                Id = model.Id,
+
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,

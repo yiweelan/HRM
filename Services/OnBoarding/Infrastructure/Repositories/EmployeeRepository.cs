@@ -24,5 +24,11 @@ namespace Infrastructure.Repositories
             var emps = await _dbContext.Employees.ToListAsync();
             return emps;
         }
+
+        public async Task<Employee> GetEmployeeById(int id)
+        {
+            var emp = await _dbContext.Employees.FirstOrDefaultAsync(emp => emp.Id == id);
+            return emp;
+        }
     }
 }
