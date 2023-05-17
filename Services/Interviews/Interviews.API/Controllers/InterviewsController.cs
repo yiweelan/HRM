@@ -61,11 +61,11 @@ namespace Interviews.API.Controllers
 
         //[Route("")]
         //[HttpPut("{id}")]
-        [Route("")]
+        [Route("{id:int}")]
         [HttpPut]
-        public async Task<IActionResult> Update(InterviewRequestModel model)
+        public async Task<IActionResult> Update(Interview entity)
         {
-            var interview = await _interviewServcie.UpdateInterview(model);
+            var interview = await _interviewServcie.UpdateInterview(entity);
             return Ok(interview);
         }
 
@@ -82,6 +82,20 @@ namespace Interviews.API.Controllers
 
             var deletedId = await _interviewServcie.DeleteInterview(id);
             return Ok(deletedId);
+        }
+
+        [Route("pageNum:int")]
+        [HttpGet]
+        public async Task<IActionResult> DisplayByPage(int pageNum)
+        {
+            var interviews = await _interviewServcie.GetPaginatedInterviews(2, pageNum);
+
+            if (!interviews.Any())
+            {
+                return NotFound(new { error = "No Interviews found, please try later" });
+            }
+
+            return Ok(interviews);
         }
     }
 }

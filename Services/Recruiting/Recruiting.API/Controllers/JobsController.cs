@@ -70,5 +70,19 @@ namespace Recruiting.API.Controllers
             var job = await _jobService.AddJob(model);
             return CreatedAtAction("GetJobDetails", new { controller = "Jobs", id = job }, "Job Created");
         }
+
+        [Route("pageNum:int")]
+        [HttpGet]
+        public async Task<IActionResult> DisplayByPage(int pageNum)
+        {
+            var jobs = await _jobService.GetPaginatedJobs(2, pageNum);
+
+            if (!jobs.Any())
+            {
+                return NotFound(new { error = "No open Jobs found, please try later" });
+            }
+
+            return Ok(jobs);
+        }
     }
 }

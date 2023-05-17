@@ -66,26 +66,17 @@ namespace OnBoarding.API.Controllers
             return Ok(deletedId);
         }
 
-        //[Route("")]
-        //[HttpPut]
-        //public async Task<IActionResult> Update(EmployeeRequestModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        // 400 status code
-        //        return BadRequest();
-        //    }
-        //    var emp = await _employeeService.UpdateEmployee(model);
-        //    return Ok(emp);
-        //}
-
         [Route("{id:int}")]
         [HttpPut]
         public async Task<IActionResult> Update(int id, [FromBody] Employee employee)
         {
+            if(id != employee.Id)
+            {
+                return BadRequest(new { errorMessage = "Mismatch id" });
+            }
 
-            var updateId = await _employeeService.UpdateEmployee(employee);
-            return Ok(updateId);
+            var updated = await _employeeService.UpdateEmployee(employee);
+            return Ok(updated);
         }
     }
 }

@@ -88,25 +88,10 @@ namespace Infrastructure.Services
             return interivew.Id;
         }
 
-        public async Task<int> UpdateInterview(InterviewRequestModel model)
+        public async Task<Interview> UpdateInterview(Interview entity)
         {
-
-            var interviewEntity = new Interview
-            {
-                Id = model.Id,
-                CandidateIdentityId = Guid.NewGuid(),
-                BeginTime = model.BeginTime,
-                EndTime = model.EndTime,
-                CandidateEmail = model.CandidateEmail,
-                CandidateFirstName = model.CandidateFirstName,
-                CandidateLastName = model.CandidateLastName,
-                InterviewerId = model.InterviewerId,
-                InterviewTypeId = model.InterviewTypeId,
-                SubmissionId = model.SubmissionId,
-            };
-
-            var interivew = await _interviewRepository.UpdateAsync(interviewEntity);
-            return interivew.Id;
+            var interview = await _interviewRepository.UpdateAsync(entity);
+            return interview;
         }
 
         public async Task<int> DeleteInterview(int id)
@@ -114,6 +99,36 @@ namespace Infrastructure.Services
             var deletedId = await _interviewRepository.DeleteAsync(id);
 
             return deletedId;
+        }
+
+        public async Task<IEnumerable<InterviewResponseModel>> GetPaginatedInterviews(int pageSize = 30, int pageNumber = 1)
+        {
+            var interviews = await _interviewRepository.GetAllInterviews();
+
+            interviews = interviews.OrderBy(x => x.BeginTime).ToList();
+
+            pageNumber = pageNumber - 1;
+            interviews = interviews.Skip(pageSize * pageNumber).Take(pageSize).ToList();
+
+            var interviewResponseModel = new List<InterviewResponseModel>();
+
+            foreach (var interview in interviews)
+            {
+                interviewResponseModel.Add(new InterviewResponseModel()
+                {
+                    Id = interview.Id,
+                    BeginTime = interview.BeginTime,
+                    EndTime = interview.EndTime,
+                    CandidateEmail = interview.CandidateEmail,
+                    CandidateFirstName = interview.CandidateFirstName,
+                    CandidateLastName = interview.CandidateLastName,
+                    InterviewerId = interview.InterviewerId,
+                    InterviewTypeId = interview.InterviewTypeId,
+                    SubmissionId = interview.SubmissionId,
+                });
+            }
+
+            return interviewResponseModel;
         }
     }
 }

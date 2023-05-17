@@ -16,9 +16,10 @@ namespace ApplicationCore.Contracts.Services
 
         Task<int> AddInterview(InterviewRequestModel model);
 
-        //Task<InterviewResponseModel> UpdateInterview(Interview model);
-        Task<int> UpdateInterview(InterviewRequestModel model);
+        Task<Interview> UpdateInterview(Interview model);
 
         Task<int> DeleteInterview(int id);
+
+        Task<IEnumerable<InterviewResponseModel>> GetPaginatedInterviews(int pageSize = 30, int pageNumber = 1);
     }
 }

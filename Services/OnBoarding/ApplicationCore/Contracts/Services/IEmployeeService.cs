@@ -13,9 +13,8 @@ namespace ApplicationCore.Contracts.Services
         Task<List<EmployeeResponseModel>> GetAllEmployees();
         Task<EmployeeResponseModel> GetEmployeeById(int id);
         Task<int> AddEmployee(EmployeeRequestModel model);
-        //Task<int> UpdateEmployee(EmployeeRequestModel model);
 
-        Task<int> UpdateEmployee(Employee model);
+        Task<Employee> UpdateEmployee(Employee model);
 
         Task<int> DeleteEmployee(int id);
     }

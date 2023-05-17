@@ -29,11 +29,16 @@ namespace Infrastructure.Services
                 return null;
             }
 
+            var candTemp = _submissionRepository.GetCandidateById(sub.CandidateId);
+
             var submissionReponseModel = new SubmissionResponseModel
             {
                 Id = sub.Id,
                 JobId = sub.JobId,
-                CandidateId = sub.CandidateId
+                CandidateId = sub.CandidateId,
+                Email = candTemp.Result.Email,
+                FirstName = candTemp.Result.FirstName,
+                LastName = candTemp.Result.LastName,
             };
 
             return submissionReponseModel;
@@ -47,7 +52,7 @@ namespace Infrastructure.Services
             {
                 JobId = model.JobId,
                 CandidateId = cand.Result.Id,
-                SubmittedOn = DateTime.UtcNow
+                SubmittedOn = DateTime.UtcNow,
             };
 
             var sub = await _submissionRepository.AddAsync(subEntity);

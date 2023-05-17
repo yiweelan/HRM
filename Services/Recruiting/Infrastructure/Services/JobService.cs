@@ -78,6 +78,10 @@ namespace Infrastructure.Services
         public async Task<IEnumerable<JobResponseModel>> GetPaginatedJobs(int pageSize = 30, int pageNumber = 1)
         {
             var jobs = await _jobRepository.GetAllJobs();
+
+            jobs = jobs.OrderBy(x => x.StartDate).ToList();
+
+            pageNumber = pageNumber - 1;
             jobs = jobs.Skip(pageSize * pageNumber).Take(pageSize).ToList();
             var jobsResponseModel = new List<JobResponseModel>();
 

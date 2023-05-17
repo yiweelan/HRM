@@ -75,27 +75,10 @@ namespace Infrastructure.Services
             return emp.Id;
         }
 
-        public async Task<int> UpdateEmployee(EmployeeRequestModel model)
-        {
-            var empEntity = new Employee
-            {
-                Id = model.Id,
-                Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                SSN = model.SSN,
-                EmployeeIdentityId = Guid.NewGuid(),
-                EmployeeStatusId = 1
-            };
-
-            var emp = await _employeeRepository.UpdateAsync(empEntity);
-            return emp.Id;
-        }
-
-        public async Task<int> UpdateEmployee(Employee model)
+        public async Task<Employee> UpdateEmployee(Employee model)
         {
             var emp = await _employeeRepository.UpdateAsync(model);
-            return emp.Id;
+            return emp;
         }
 
         public async Task<int> DeleteEmployee(int id)

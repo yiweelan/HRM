@@ -31,6 +31,19 @@ namespace Recruiting.API.Controllers
             return Ok(subs);
         }
 
+        [Route("{id:int}", Name = "GetSubmissionDetails")]
+        [HttpGet]
+        public async Task<IActionResult> GetSubmissionDetails(int id)
+        {
+            var sub = await _submissionService.GetSubmissionById(id);
+
+            if(sub == null)
+            {
+                return NotFound(new { errorMessage = "No Submission found for this id" });
+            }
+            return Ok(sub);
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> Create(SubmissionRequestModel model)
@@ -41,7 +54,7 @@ namespace Recruiting.API.Controllers
                 return BadRequest();
             }
             var sub = await _submissionService.AddSubmission(model);
-            return CreatedAtAction("GetSubmissionById", new { controller = "Submissions", id = sub }, "Submission Created");
+            return CreatedAtAction("GetSubmissionDetails", new { controller = "Submissions", id = sub }, "Submission Created");
         }
     }
 }
