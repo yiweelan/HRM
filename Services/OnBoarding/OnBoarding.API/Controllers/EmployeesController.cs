@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using ApplicationCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -58,16 +59,33 @@ namespace OnBoarding.API.Controllers
         }
 
         [Route("")]
-        [HttpPut]
-        public async Task<IActionResult> Update(EmployeeRequestModel model)
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                // 400 status code
-                return BadRequest();
-            }
-            var emp = await _employeeService.UpdateEmployee(model);
-            return Ok(emp);
+            var deletedId = await _employeeService.DeleteEmployee(id);
+            return Ok(deletedId);
+        }
+
+        //[Route("")]
+        //[HttpPut]
+        //public async Task<IActionResult> Update(EmployeeRequestModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        // 400 status code
+        //        return BadRequest();
+        //    }
+        //    var emp = await _employeeService.UpdateEmployee(model);
+        //    return Ok(emp);
+        //}
+
+        [Route("{id:int}")]
+        [HttpPut]
+        public async Task<IActionResult> Update(int id, [FromBody] Employee employee)
+        {
+
+            var updateId = await _employeeService.UpdateEmployee(employee);
+            return Ok(updateId);
         }
     }
 }

@@ -91,5 +91,17 @@ namespace Infrastructure.Services
             var emp = await _employeeRepository.UpdateAsync(empEntity);
             return emp.Id;
         }
+
+        public async Task<int> UpdateEmployee(Employee model)
+        {
+            var emp = await _employeeRepository.UpdateAsync(model);
+            return emp.Id;
+        }
+
+        public async Task<int> DeleteEmployee(int id)
+        {
+            var deletedId = await _employeeRepository.DeleteAsync(id);
+            return deletedId;
+        }
     }
 }
