@@ -73,3 +73,8 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.genruntimeconfig.cache
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\ref\Recruiting.API.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\obj\Debug\net7.0\Recruiting.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Humanizer.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\System.CodeDom.dll

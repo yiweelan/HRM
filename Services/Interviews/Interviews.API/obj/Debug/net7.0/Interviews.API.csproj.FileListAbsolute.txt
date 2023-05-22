@@ -73,3 +73,8 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\obj\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\obj\Debug\net7.0\Interviews.API.pdb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\obj\Debug\net7.0\Interviews.API.genruntimeconfig.cache
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\obj\Debug\net7.0\ref\Interviews.API.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Humanizer.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\System.CodeDom.dll

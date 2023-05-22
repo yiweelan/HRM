@@ -17,18 +17,21 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IInterviewRepository, InterviewRepository>();
 builder.Services.AddScoped<IInterviewServcie, InterviewService>();
 
-builder.Services.AddDbContext<InterviewsDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("InterviewsDbConnection"))
-    );
+//builder.Services.AddDbContext<InterviewsDbContext>(
+//    options => options.UseSqlServer(builder.Configuration.GetConnectionString("InterviewsDbConnection"))
+//    );
+
+var dockerConnectionString = Environment.GetEnvironmentVariable("MSSQLConnectionStrings");
+builder.Services.AddDbContext<InterviewsDbContext>(options => options.UseSqlServer(dockerConnectionString));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 

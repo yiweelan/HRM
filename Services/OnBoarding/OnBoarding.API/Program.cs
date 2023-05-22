@@ -17,18 +17,21 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-builder.Services.AddDbContext<OnBoardingDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("OnBoardingDbConnection"))
-    );
+//builder.Services.AddDbContext<OnBoardingDbContext>(
+//    options => options.UseSqlServer(builder.Configuration.GetConnectionString("OnBoardingDbConnection"))
+//    );
+
+var dockerConnectionString = Environment.GetEnvironmentVariable("MSSQLConnectionStrings");
+builder.Services.AddDbContext<OnBoardingDbContext>(options => options.UseSqlServer(dockerConnectionString));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
