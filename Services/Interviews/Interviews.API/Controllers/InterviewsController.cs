@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using ApplicationCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,22 @@ namespace Interviews.API.Controllers
 
             return Ok(interviews);
         }
+
+        [Route("")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetInterviews()
+        {
+            // go to database and get all interviews based on roles
+            // read header using HttpContext
+            // JWT token
+            // Auth Header, bearer ...
+            // userid, roles
+            // decode the JWT to C# object
+            var interviews = new List<string>(new[] { "abc, xyz, ddd" });
+            return Ok(interviews);
+        }
+
 
         [Route("{id:int}", Name = "GetInterveiwDetails")]
         [HttpGet]
