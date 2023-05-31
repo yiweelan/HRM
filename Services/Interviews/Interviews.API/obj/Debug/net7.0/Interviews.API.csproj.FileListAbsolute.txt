@@ -78,3 +78,4 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\System.CodeDom.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Interviews\Interviews.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

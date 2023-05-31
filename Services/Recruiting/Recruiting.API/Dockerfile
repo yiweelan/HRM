@@ -16,7 +16,7 @@ WORKDIR "/src/Services/Recruiting/Recruiting.API"
 RUN dotnet build "Recruiting.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Recruiting.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Recruiting.API.csproj" -c Release -o /app/publish -r linux-x64 --self-contained false /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
