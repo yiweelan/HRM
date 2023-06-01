@@ -29,14 +29,14 @@ jobs:
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v1
         with:
-          appSourcePath: ${{ github.workspace }}Dockerfile.onboarding 
+          appSourcePath: ${{ github.workspace }}
           registryUrl: lan2023cr.azurecr.io
           registryUsername: ${{ secrets.ONBOARDINGCONTAINER_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.ONBOARDINGCONTAINER_REGISTRY_PASSWORD }}
           containerAppName: onboarding-container
           resourceGroup: May2023Batch
           imageToBuild: lan2023cr.azurecr.io/onboarding-container:${{ github.sha }}
-          dockerfilePath: Dockerfile
+          dockerfilePath: Dockerfile.onboarding
 
      
 
