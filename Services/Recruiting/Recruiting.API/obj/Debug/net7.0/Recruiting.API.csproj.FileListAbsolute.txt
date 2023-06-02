@@ -78,3 +78,4 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Deb
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\System.CodeDom.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\Recruiting.API\bin\Debug\net7.0\System.Web.Cors.dll
