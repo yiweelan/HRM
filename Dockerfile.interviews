@@ -16,7 +16,7 @@ WORKDIR "/src/Services/Interviews/Interviews.API"
 RUN dotnet build "Interviews.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Interviews.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Interviews.API.csproj" -c Release -o /app/publish -r linux-x64 --self-contained false /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
