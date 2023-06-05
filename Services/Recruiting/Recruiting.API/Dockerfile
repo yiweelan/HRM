@@ -22,4 +22,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENV MSSQLConnectionStrings="Server=tcp:may2023hrm.database.windows.net,1433;Initial Catalog=RecruitingDb;Persist Security Info=False;User ID=mayBatch;Password=Antra808Ax;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+ENV angularURL="http://localhost:4200"
 ENTRYPOINT ["dotnet", "Recruiting.API.dll"]
