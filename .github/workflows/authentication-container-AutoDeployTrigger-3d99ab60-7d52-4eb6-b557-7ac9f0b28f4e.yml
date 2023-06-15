@@ -1,0 +1,42 @@
+name: Trigger auto deployment for authentication-container
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '/Services/Authentication/**'
+    - '.github/workflows/authentication-container-AutoDeployTrigger-3d99ab60-7d52-4eb6-b557-7ac9f0b28f4e.yml'
+
+  # Allow mannually trigger 
+  workflow_dispatch:
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AUTHENTICATIONCONTAINER_AZURE_CREDENTIALS }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}/Services/Authentication 
+          registryUrl: lan2023cr.azurecr.io
+          registryUsername: ${{ secrets.AUTHENTICATIONCONTAINER_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.AUTHENTICATIONCONTAINER_REGISTRY_PASSWORD }}
+          containerAppName: authentication-container
+          resourceGroup: May2023Batch
+          imageToBuild: lan2023cr.azurecr.io/authentication-container:${{ github.sha }}
+          dockerfilePath: Dockerfile
+
+     
+
