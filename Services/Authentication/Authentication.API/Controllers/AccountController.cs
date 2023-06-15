@@ -16,8 +16,14 @@ namespace Authentication.API.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-
         private readonly IConfiguration _configuration;
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _configuration = configuration;
+        }
 
         // Register
         [HttpPost("register")]
@@ -41,10 +47,25 @@ namespace Authentication.API.Controllers
             if (!result.Errors.Any())
             {
                 // user has been successfully created
-                return CreatedAtRoute("GetUser", new { controller = "account", id = user.Id });
+                return CreatedAtRoute(routeName:"GetUser", new { controller = "account", id = user.Id }, value:"Register Success");
             }
 
             return BadRequest( result.Errors.Select( error => error.Description).ToList());
+        }
+
+        // GetUserById
+        [HttpGet]
+        [Route(template: "{id}", Name = "GetUser")]
+        public async Task<IActionResult> GetUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
         }
 
         // Login
@@ -101,6 +122,5 @@ namespace Authentication.API.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-        // GetUserById
     }
 }

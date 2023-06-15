@@ -18,24 +18,25 @@ namespace Interviews.API.Controllers
             _interviewServcie = interviewServcie;
         }
 
-        [Route("")]
-        [HttpGet]
-        public async Task<IActionResult> GetAllInterviews()
-        {
-            var interviews = await _interviewServcie.GetAllInterviews();
+        //[Route("")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllInterviews()
+        //{
+        //    var interviews = await _interviewServcie.GetAllInterviews();
 
-            if (!interviews.Any())
-            {
-                return NotFound(new { error = "No Interviews found, please try later" });
-            }
+        //    if (!interviews.Any())
+        //    {
+        //        return NotFound(new { error = "No Interviews found, please try later" });
+        //    }
 
-            return Ok(interviews);
-        }
+        //    return Ok(interviews);
+        //}
 
         [Route("")]
         [HttpGet]
         [Authorize]
-        public IActionResult GetInterviews()
+        //public IActionResult GetAllInterviews()
+        public async Task<IActionResult> GetAllInterviews()
         {
             // go to database and get all interviews based on roles
             // read header using HttpContext
@@ -43,7 +44,9 @@ namespace Interviews.API.Controllers
             // Auth Header, bearer ...
             // userid, roles
             // decode the JWT to C# object
-            var interviews = new List<string>(new[] { "abc, xyz, ddd" });
+
+            //var interviews = new List<string>(new[] { "abc, xyz, ddd" });
+            var interviews = await _interviewServcie.GetAllInterviews();
             return Ok(interviews);
         }
 
