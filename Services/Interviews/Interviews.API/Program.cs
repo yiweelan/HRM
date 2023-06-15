@@ -29,7 +29,7 @@ builder.Services.AddDbContext<InterviewsDbContext>(options => options.UseSqlServ
 
 // Microsoft.AspNetCore.Authentication.JwtBearer
 // Microsoft.IdentityModel.Tokens
-builder.Services.AddAuthentication( JwtBearerDefaults.AuthenticationScheme)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
