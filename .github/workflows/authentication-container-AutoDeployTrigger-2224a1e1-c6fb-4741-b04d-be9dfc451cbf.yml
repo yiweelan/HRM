@@ -7,7 +7,7 @@ on:
     branches: 
       [ main ]
     paths:
-    - '**'
+    - 'Dockerfile.authentication/**'
     - '.github/workflows/authentication-container-AutoDeployTrigger-2224a1e1-c6fb-4741-b04d-be9dfc451cbf.yml'
 
   # Allow mannually trigger 
@@ -36,7 +36,7 @@ jobs:
           containerAppName: authentication-container
           resourceGroup: May2023Batch
           imageToBuild: lan2023cr.azurecr.io/authentication-container:${{ github.sha }}
-          
+          dockerfilePath: Dockerfile.authentication
 
      
 
