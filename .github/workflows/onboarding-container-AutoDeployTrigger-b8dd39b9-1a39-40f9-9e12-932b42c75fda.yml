@@ -1,0 +1,42 @@
+name: Trigger auto deployment for onboarding-container
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '/Services/OnBoarding/**'
+    - '.github/workflows/onboarding-container-AutoDeployTrigger-b8dd39b9-1a39-40f9-9e12-932b42c75fda.yml'
+
+  # Allow mannually trigger 
+  workflow_dispatch:
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.ONBOARDINGCONTAINER_AZURE_CREDENTIALS }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}/Services/OnBoarding 
+          registryUrl: lan2023cr.azurecr.io
+          registryUsername: ${{ secrets.ONBOARDINGCONTAINER_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.ONBOARDINGCONTAINER_REGISTRY_PASSWORD }}
+          containerAppName: onboarding-container
+          resourceGroup: May2023Batch
+          imageToBuild: lan2023cr.azurecr.io/onboarding-container:${{ github.sha }}
+          dockerfilePath: Dockerfile
+
+     
+
