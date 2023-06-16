@@ -6,24 +6,26 @@ namespace RecruitingWeb.Infra
     public class RecruitingMiddleware
     {
         private readonly RequestDelegate _next;
-        public RecruitingMiddleware(RequestDelegate next)
+        private readonly ILogger<RecruitingMiddleware> _logger;
+        public RecruitingMiddleware(RequestDelegate next, ILogger<RecruitingMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            var log = new LoggerConfiguration();
-
-
-            var requestMethod = context.Request.Method;
+            // var log = new LoggerConfiguration();
+            // var requestMethod = context.Request.Method;
             try
             {
                 await _next(context);
             }
-            catch(Exception ex)
+            catch(Exception generalEx)
             {
-                
+                _logger.LogError(generalEx, "There is an Exception caught. Method: {method}. Path: {path}",
+                    context.Request.Method, context.Request.Path);
+                throw;
             }
             
         }

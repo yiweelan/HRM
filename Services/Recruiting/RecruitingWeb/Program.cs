@@ -4,8 +4,15 @@ using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Serilog.Formatting.Json;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration().WriteTo.File(new JsonFormatter(), "Logs/log-.json", rollingInterval: RollingInterval.Day).CreateLogger();
+builder.Logging.AddSerilog();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -35,6 +42,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseRecruitingMiddleware();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -42,3 +51,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+app.Lifetime.ApplicationStopping.Register(Log.CloseAndFlush);

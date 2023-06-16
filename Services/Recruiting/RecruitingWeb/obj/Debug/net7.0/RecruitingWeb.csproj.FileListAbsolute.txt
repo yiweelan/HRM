@@ -280,3 +280,4 @@ C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\RecruitingWeb\bin\Debu
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\RecruitingWeb\bin\Debug\net7.0\Serilog.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\RecruitingWeb\bin\Debug\net7.0\Serilog.Sinks.Console.dll
 C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\RecruitingWeb\bin\Debug\net7.0\Serilog.Sinks.File.dll
+C:\Shortcuts\Design\AntraHW\repos\HRM\Services\Recruiting\RecruitingWeb\bin\Debug\net7.0\Serilog.Extensions.Logging.dll

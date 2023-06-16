@@ -203,6 +203,10 @@
               "target": "Package",
               "version": "[2.12.0, )"
             },
+            "Serilog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[4.1.0, )"
